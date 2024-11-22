@@ -1,20 +1,30 @@
 import React, {useEffect} from 'react'
 
-//Case 1: This useEffect is run on every render
+const Navbar = ({color}) => {
+  //Case 1: This useEffect is run on every render
 useEffect(() => {
-    alert("Hay i am run on every render");
+  alert("Hay i am run on every render");
 });
 
 //Case 2: This useEffect is run only first time of render
 useEffect(() => {
-    alert("Welcome to my page");
+  alert(" Hay i am run only on first time,Welcome to my page");
 }, []);
 
-const Navbar = ({color}) => {
    useEffect(() => {   
-     alert("Color was changed")
+     alert(" hay i am run because Color was changed")
    }, [color])
    
+   //Example of cleane up function
+   useEffect(() => {
+    alert(" Hay i am run only on first time,This is the first render of app.jsx");
+
+    return ()=>{
+      alert("Component was unmounted");//it is only run when your navbar component is unmounted (disappear) from app.jsx file.
+    }
+  }, []);
+
+
 return (
     <div>
       I am navbar of color {color}

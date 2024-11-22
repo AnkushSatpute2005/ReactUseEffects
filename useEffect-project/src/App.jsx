@@ -10,13 +10,13 @@ function App() {
   
   //Case 3: This useEffect is run only when certain variable is change like 'count'
   useEffect(() => {
-    alert("Count was " + count + " change");
+    alert(" hay i am run because Count was change");
     setColor(color + 1);
   }, [count]); // you can specify multipal states like [count ,color,....] if any of the specifide value is change , this is automaticaiy run
 
   return (
     <>
-      <Navbar color={"navy " + "blue" + color} />
+      {/* <Navbar color={"navy " + "blue" + color} /> */}
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
